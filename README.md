@@ -27,7 +27,7 @@ Endpoint: `/carros/comparar` (Método GET)
 
 Para comparar dois carros, faça uma solicitação GET com os detalhes dos carros na URL. Exemplo:
 
-![Exemplo de Comparação](./screenshots/comparar_carros.png)
+![Exemplo de Comparação](https://github.com/Julio-Cezar-Santos/Api-comparador-de-carros/blob/main/screenshots/Captura%20de%20tela%202023-08-29%20170357.png)
 
  
 
