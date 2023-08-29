@@ -29,11 +29,13 @@ const cadastrarCarro = (req, res) => {
     return res.status(200).json({mensagem: "Carro cadastrado com sucesso!"})
 }
 
-const compararCarros = (req, res) => {
-    const { carro1Marca, carro1Modelo, carro1Ano, carro2Marca, carro2Modelo, carro2Ano } = req.query;
 
-    const carro1Info = carros.find(carro => carro.marca === carro1Marca && carro.modelo === carro1Modelo && carro.ano === parseInt(carro1Ano));
-    const carro2Info = carros.find(carro => carro.marca === carro2Marca && carro.modelo === carro2Modelo && carro.ano === parseInt(carro2Ano));
+
+const compararCarros = (req, res) => {
+    const { carro1, carro2 } = req.body;
+
+    const carro1Info = carros.find(carro => carro.marca === carro1.marca && carro.modelo === carro1.modelo && carro.ano === parseInt(carro1.ano));
+    const carro2Info = carros.find(carro => carro.marca === carro2.marca && carro.modelo === carro2.modelo && carro.ano === parseInt(carro2.ano));
 
     if (!carro1Info || !carro2Info) {
         return res.status(404).json({ mensagem: 'Um ou ambos os carros não encontrados.' });
@@ -56,9 +58,13 @@ const compararCarros = (req, res) => {
         mensagem: 'Comparação de Carros',
         carro1: carro1Info,
         carro2: carro2Info,
-
         melhorCarro: melhorCarro
     });
 };
+
+
+
+
+
 
 module.exports = {cadastrarCarro, compararCarros}
